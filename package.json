@@ -1,0 +1,19 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "practice project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RAUNI-RISHABH/nodeJs.git"
+  },
+  "author": "rishabh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RAUNI-RISHABH/nodeJs/issues"
+  },
+  "homepage": "https://github.com/RAUNI-RISHABH/nodeJs#readme"
+}
