@@ -50,7 +50,7 @@ const userSchema = new Schema({
 userSchema.pre("save", async function(next) {
     if(!this.isModified("password")) return next(); // will check if password has been changed or not then only it will proceed further else return and pass on
 
-    this.password = bcrypt.hash(this.password, 10);
+    this.password = await bcrypt.hash(this.password, 10);
     next();
 });
 
@@ -89,6 +89,8 @@ userSchema.methods.generateRefreshToken = function() {
         }
     )
 }
+
+
 
 
 

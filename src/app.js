@@ -1,5 +1,5 @@
 import express from "express";
-import cots from "cors";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -21,5 +21,15 @@ app.use(express.static("public"));
 
 // to perform crud operation with cookies like to save delete in client browser
 app.use(cookieParser());
+
+
+
+// routes import 
+import userRouter from './routes/user.routes.js'
+
+//routes declaration. this is middleware it will go to userRouter where we will handle all the requested URL
+// this is prefix "/api/v1/users"
+app.use("/api/v1/users", userRouter);
+
 
 export  {app}

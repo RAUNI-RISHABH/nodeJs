@@ -1,6 +1,6 @@
 // require('dotenv').config({path: './env'}) earlier approach with require/commonJS
 import dotenv from "dotenv";
-
+import {app} from './app.js'
 
 dotenv.config({
   path: './env'
