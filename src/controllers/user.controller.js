@@ -1,6 +1,6 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/apiError.js";
-import { User } from "../models/user.model";
+import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js"
 import { ApiResponse } from "../utils/apiResponse.js"
 
@@ -15,7 +15,7 @@ const registerUser = asyncHandler(async (req, res) => {
   // check for user creation
   // return resposnse to client or error if occur any
 
-  const { fullName, email, uername, password } = req.body;
+  const { fullName, email, username, password } = req.body;
 
   console.log("email: ", email);
   if (
@@ -24,7 +24,7 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(400, "All fields are required");
   }
   // User model will now deal with User DB in the database
- const existedUser = User.findOne({
+ const existedUser = await User.findOne({
     $or: [{ username }, { email }],
   });
 
