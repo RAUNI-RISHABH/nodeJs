@@ -46,7 +46,7 @@ const userSchema = new Schema({
     }
 }, {timestamps: true});
 
-// this is hook of mongoose and will run only when save even occurs with user model
+// this is hook of mongoose and will run only before save event occurs with user model
 userSchema.pre("save", async function(next) {
     if(!this.isModified("password")) return next(); // will check if password has been changed or not then only it will proceed further else return and pass on
 

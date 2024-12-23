@@ -17,11 +17,21 @@ app.use(express.urlencoded({extended: true, limit: "16kb"}));
 
 //just to keep file for public use like used basically to keep static file 
 // like uploaded file later upload to any third party from here
-app.use(express.static("public"));
+app.use(express.static("./public"));
 
 // to perform crud operation with cookies like to save delete in client browser
 app.use(cookieParser());
 
+
+app.use((err, req, res, next) => {
+    if (res.headersSent) {
+        // Avoid sending another response if headers are already sent
+        return next(err);
+    }
+    res.status(err.status || 500).json({
+        message: err.message || "Internal Server Error",
+    });
+});
 
 
 // routes import 
